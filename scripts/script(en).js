@@ -320,15 +320,27 @@ function addTouchSupport() {
     });
 }
 
+// Inicializar soporte touch cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', addTouchSupport);
+
 document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('languageToggle');
+    const spanishLabel = document.getElementById('spanish-label');
+    const englishLabel = document.getElementById('english-label');
+    
+    // Marcar inglés como activo por defecto
+    if (toggle) {
+        toggle.checked = true;
+        spanishLabel.classList.remove('active');
+        englishLabel.classList.add('active');
+    }
     
     toggle.addEventListener('change', function() {
         if (this.checked) {
-            // Redirigir a la página en inglés
+            // Mantener en inglés
             window.location.href = 'index(en).html';
         } else {
-            // Mantener en español
+            // Redirigir a español
             window.location.href = 'index.html';
         }
     });
