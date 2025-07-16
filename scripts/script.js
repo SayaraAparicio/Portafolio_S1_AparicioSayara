@@ -11,35 +11,34 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
- async function downloadCV() {
-        try {
-            // Ajusta esta ruta según donde tengas tu archivo PDF
-            const pdfUrl = '../imgs/HV\ AparicioSayara.pdf';
-            
-            const response = await fetch(pdfUrl);
-            
-            if (!response.ok) {
-                throw new Error('Error al cargar el archivo PDF');
-            }
-            
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'HV_SayaraAparicio.pdf';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            window.URL.revokeObjectURL(url);
-            
-        } catch (error) {
-            console.error('Error al descargar el CV:', error);
-            alert('Error al descargar el CV. Por favor, intenta de nuevo.');
+
+async function downloadCV() {
+    try {
+        const pdfUrl = '../imgs/HV AparicioSayara.pdf';
+        const response = await fetch(pdfUrl);
+
+        if (!response.ok) {
+            throw new Error('Error al cargar el archivo PDF');
         }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'HV_SayaraAparicio.pdf';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.URL.revokeObjectURL(url);
+
+    } catch (error) {
+        console.error('Error al descargar el CV:', error);
+        alert('Error al descargar el CV. Por favor, intenta de nuevo.');
     }
+}
 function createParticles() {
             const particlesContainer = document.querySelector('.particles');
             const particleCount = 30;
@@ -55,7 +54,7 @@ function createParticles() {
             }
         }
 
-        // Efecto de parallax sutil
+        // Scroll suave
         document.addEventListener('mousemove', (e) => {
             const shapes = document.querySelectorAll('.shape');
             const x = e.clientX / window.innerWidth;
@@ -69,15 +68,15 @@ function createParticles() {
             });
         });
 
-        // Inicializar efectos
+        // Efecto de brillitos
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
         });
 
-        // Efecto de clic en botones
+        // Botones
         document.querySelectorAll('.service-button').forEach(button => {
             button.addEventListener('click', (e) => {
-                // Efecto de ripple
+                // Style de efecto
                 const ripple = document.createElement('span');
                 const rect = button.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
@@ -130,7 +129,7 @@ function createParticles() {
     }
 }
 
-// Efecto de parallax sutil
+// Efecto de suave
 document.addEventListener('mousemove', (e) => {
     const shapes = document.querySelectorAll('.shape');
     const x = e.clientX / window.innerWidth;
@@ -144,7 +143,7 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-// Manejar envío del formulario con Formspree
+// Manejar envío del formulario con Formspree (para que llegue a mi correo)
 function handleSubmit(event) {
     event.preventDefault();
     
@@ -229,7 +228,7 @@ document.querySelectorAll('.social-link').forEach(link => {
         icon.style.transform = 'scale(1) rotate(0deg)';
     });
 });
-// JavaScript para el menú hamburguesa responsivo
+// Menú hamburguesa responsive
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -305,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Función adicional para mejorar la experiencia en dispositivos touch
+// Función adicional para mejorar la experiencia en dispositivos 
 function addTouchSupport() {
     const linkCards = document.querySelectorAll('.link-card');
     

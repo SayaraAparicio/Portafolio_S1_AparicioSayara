@@ -12,34 +12,32 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
  async function downloadCV() {
-        try {
-            // Ajusta esta ruta según donde tengas tu archivo PDF
-            const pdfUrl = '../imgs/HV\ AparicioSayara.pdf';
-            
-            const response = await fetch(pdfUrl);
-            
-            if (!response.ok) {
-                throw new Error('Error al cargar el archivo PDF');
-            }
-            
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'HV_SayaraAparicio.pdf';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            window.URL.revokeObjectURL(url);
-            
-        } catch (error) {
-            console.error('Error al descargar el CV:', error);
-            alert('Error al descargar el CV. Por favor, intenta de nuevo.');
+    try {
+        const pdfUrl = '../imgs/HV AparicioSayara.pdf';
+        const response = await fetch(pdfUrl);
+
+        if (!response.ok) {
+            throw new Error('Error al cargar el archivo PDF');
         }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'HV_SayaraAparicio.pdf';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.URL.revokeObjectURL(url);
+
+    } catch (error) {
+        console.error('Error al descargar el CV:', error);
+        alert('Error al descargar el CV. Por favor, intenta de nuevo.');
     }
+}
 function createParticles() {
             const particlesContainer = document.querySelector('.particles');
             const particleCount = 30;
