@@ -2,6 +2,8 @@
 
 Un portafolio web moderno y elegante que combina creatividad, tecnología y un toque de magia rosa. Diseñado para mostrar habilidades, proyectos y personalidad de una manera única e impactante.
 
+[Portafolio - Sayara Aparicio]([https://github.com/usuario/repositorio](https://sayaraaparicio.github.io/Portafolio_S1_AparicioSayara/))
+
 ## ✨ Características
 
 - **Diseño Temático**: Inspirado en la estética Barbie con colores rosa y elementos glamorosos
